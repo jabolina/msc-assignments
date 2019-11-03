@@ -5,6 +5,9 @@ def shell_sort(nums):
     h = 1
     n = len(nums)
 
+    while h < n:
+        h = 3 * h + 1
+
     while h > 0:
         for i in range(h, n):
             c = nums[i]
@@ -14,7 +17,7 @@ def shell_sort(nums):
                 nums[j] = nums[j - h]
                 j = j - h
                 nums[j] = c
-            h = int(h // 2.2)
+        h = int(h / 3)
     return nums
 
 if __name__ == '__main__':
@@ -26,7 +29,7 @@ if __name__ == '__main__':
         numbers_file.close()
 
         start = timer()
-        shell_sort(arr)
+        arr = shell_sort(arr)
         end = timer()
 
         all_times.append(end - start)

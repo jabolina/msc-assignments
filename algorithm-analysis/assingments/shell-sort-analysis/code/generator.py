@@ -11,6 +11,14 @@ def repeated_sample(size):
     np.random.seed(int(time()))
     return np.random.normal(loc=(size // 2), scale=int(size * 0.010), size=size)
 
+def inverted_almost_ordered(size, percent):
+    ordered = almost_ordered(size, percent)
+    ordered.reverse()
+    return ordered
+
+def inverted_75_ordered(size):
+    return inverted_almost_ordered(size, .75)
+
 def almost_ordered(size, percent):
     order_to = int(size * percent)
     ordered = [int(x) for x in range(order_to)]
@@ -45,4 +53,7 @@ if __name__ == '__main__':
 
     if sample_type == 'ordered':
         output_sample(ordered_75(int(size)), filename)
+
+    if sample_type == 'inverted':
+        output_sample(inverted_75_ordered(int(size)), filename)
 

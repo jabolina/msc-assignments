@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a types=("random" "repeated" "ordered")
+declare -a types=("random" "repeated" "ordered" "inverted")
 rm -rf samples/*
 
 for type in "${types[@]}"; do
