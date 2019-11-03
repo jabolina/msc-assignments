@@ -1,3 +1,4 @@
+import sys
 from timeit import default_timer as timer
 
 def shell_sort(nums):
@@ -13,16 +14,21 @@ def shell_sort(nums):
                 nums[j] = nums[j - h]
                 j = j - h
                 nums[j] = c
-            h = h // 2.2
+            h = int(h // 2.2)
     return nums
 
-def __name__ == '__main__':
-    numbers_file = open(sys.argv[1], 'r')
-    arr = [int(x) for x in numbers_file]
-    numbers_file.close()
+if __name__ == '__main__':
+    all_times = []
 
-   start = timer()
-   shell_sort(arr)
-   end = timer()
+    for _ in range(10):
+        numbers_file = open(sys.argv[1], 'r')
+        arr = [int(x) for x in numbers_file]
+        numbers_file.close()
 
-   print('{}\t{}'.format(len(arr), (end - start))
+        start = timer()
+        shell_sort(arr)
+        end = timer()
+
+        all_times.append(end - start)
+
+    print('{}\t{}'.format(len(arr), sum(all_times) / len(all_times)))

@@ -9,7 +9,7 @@ def random_sample(size):
 
 def repeated_sample(size):
     np.random.seed(int(time()))
-    return np.random.normal(loc=(size // 2), size=size)
+    return np.random.normal(loc=(size // 2), scale=int(size * 0.010), size=size)
 
 def almost_ordered(size, percent):
     order_to = int(size * percent)
@@ -23,9 +23,13 @@ def almost_ordered(size, percent):
 def ordered_75(size): return almost_ordered(size, .75)
 
 def output_sample(sample, name):
-    file = open(name, 'w')
-    [file.write(str(int(value)) + '\n') for value in sample]
-    file.close()
+    try:
+        file = open(name, 'w')
+        [file.write(str(int(value)) + '\n') for value in sample]
+        file.close()
+    except Exception as ex:
+        print("Error")
+        print(ex)
 
 
 if __name__ == '__main__':
