@@ -16,7 +16,7 @@ Ready to be plotted in gnuplot.
 To visualize the samples distributions, you can execute:
 
 ```bash
-$ python sample_histogram.py [random|repeated|ordered] [10|11|12|...|25]
+$ python sample_histogram.py [random|repeated|ordered|inverted] [10|11|12|...|25]
 ```
 
 The greater the file, the more time it will delay to be plotted.

@@ -3,9 +3,15 @@ from collections import Counter
 import sys
 
 
+def gen_x_y(counter):
+    values = [x for x in counter.keys()]
+    greater = max(values)
+    return ([counter[k] for k in range(greater)], [v for v in range(greater)])
+
+
 def plot(data):
-    counter = Counter(data)
-    plt.plot([k for k in counter.keys()], [x for x in counter.values()], '.')
+    (y, x) = gen_x_y(Counter(data))
+    plt.plot(x, y, '-')
     plt.show()
 
 

@@ -18,6 +18,7 @@ def shell_sort(nums):
                 j = j - h
                 nums[j] = c
         h = int(h / 3)
+        print(h)
     return nums
 
 if __name__ == '__main__':
