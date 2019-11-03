@@ -21,3 +21,9 @@ $ python sample_histogram.py [random|repeated|ordered] [10|11|12|...|25]
 
 The greater the file, the more time it will delay to be plotted.
 
+### Dependencies
+To execute this, some things is needed:
+
+    * Python
+    * Numpy
+    * Matplotlib (sample visualization)
